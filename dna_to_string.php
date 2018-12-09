@@ -36,7 +36,6 @@
             $converted_file = glob("uploads/*decoded");
             $get_file_contents = file_get_contents("/var/www/html/".$converted_file[0]);
             echo "Converted String: ".$get_file_contents;
-            $delete_files = exec('rm -rf /var/www/html'.$target_file.' /var/www/html'.$converted_file[0]);
             // echo "The file ". basename( $_FILES["fileToUpload"]["name"]). " has been uploaded.";
         } else {
             echo "Sorry, there was an error uploading your file.";
