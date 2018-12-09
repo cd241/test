@@ -33,7 +33,8 @@
     } else {
         if (move_uploaded_file($_FILES["fileToUpload"]["tmp_name"], $target_file)) {
             $convert = exec('python /usr/local/lib/python2.7/site-packages/dna/dna.py -d /var/www/html/'.$target_file);
-            $get_file_contents = file_get_contents("/var/www/html/".$target_file."decoded");
+            $rename = rename("/var/www/html/".$target_file, "/var/www/html/".$target_file.".decoded");
+            $get_file_contents = file_get_contents("/var/www/html/".$rename);
             echo "Converted String: ".$get_file_contents;
             // echo "The file ". basename( $_FILES["fileToUpload"]["name"]). " has been uploaded.";
         } else {
