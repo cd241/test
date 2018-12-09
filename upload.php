@@ -8,6 +8,10 @@
     $uploadOk = 1;
     $imageFileType = strtolower(pathinfo($target_file,PATHINFO_EXTENSION));
 
+    echo $target_file; exit;
+    $test = shell_exec('sudo python /usr/local/lib/python2.7/site-packages/dna/dna.py -e /var/www/html/uploads/'.$target_file);
+    echo $test;
+
     // Check if file already exists
     if (file_exists($target_file)) {
         echo "Sorry, file already exists.";
@@ -29,9 +33,7 @@
     // if everything is ok, try to upload file
     } else {
         if (move_uploaded_file($_FILES["fileToUpload"]["tmp_name"], $target_file)) {
-            echo $target_file; exit;
-            $test = shell_exec('sudo python /usr/local/lib/python2.7/site-packages/dna/dna.py -e /var/www/html/uploads/'.$target_file);
-            echo $test;
+
             echo "The file ". basename( $_FILES["fileToUpload"]["name"]). " has been uploaded.";
         } else {
             echo "Sorry, there was an error uploading your file.";
