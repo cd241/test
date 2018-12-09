@@ -35,7 +35,7 @@
             $convert = exec('python /usr/local/lib/python2.7/site-packages/dna/dna.py -d /var/www/html/'.$target_file.'dna');
             $get_file_contents = file_get_contents("/var/www/html/".$target_file.'.decoded');
             echo $get_file_contents;
-            echo "The file ". basename( $_FILES["fileToUpload"]["name"]). " has been uploaded.";
+            // echo "The file ". basename( $_FILES["fileToUpload"]["name"]). " has been uploaded.";
         } else {
             echo "Sorry, there was an error uploading your file.";
         }
