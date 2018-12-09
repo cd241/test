@@ -8,8 +8,7 @@
     $uploadOk = 1;
     $imageFileType = strtolower(pathinfo($target_file,PATHINFO_EXTENSION));
 
-    echo $target_file; exit;
-    $test = shell_exec('sudo python /usr/local/lib/python2.7/site-packages/dna/dna.py -e /var/www/html/uploads/'.$target_file);
+    $test = shell_exec('sudo python /usr/local/lib/python2.7/site-packages/dna/dna.py -e /var/www/html/'.$target_file);
     echo $test;
 
     // Check if file already exists
