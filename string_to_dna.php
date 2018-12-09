@@ -46,15 +46,8 @@
 <!DOCTYPE html>
 <html>
 <body>
-    
-    <style>
-        html, body {
-            max-width: 100%;
-            overflow-x: hidden;
-        }
-    </style>
 
-    <br><br>
+    <br>
     <label>Converted String: <?php echo $get_file_contents; ?> </label>
     <br><br><br>
     <a href="carverr.html">Go back</a>
