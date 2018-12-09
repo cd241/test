@@ -21,8 +21,8 @@
     }
     
     // Allow certain file formats
-    if($imageFileType!= "decoded") {
-        echo "Sorry, only .txt.decoded files are allowed.";
+    if($imageFileType!= "dna") {
+        echo "Sorry, only .txt.dna files are allowed.";
         $uploadOk = 0;
     }
     
@@ -32,8 +32,8 @@
     // if everything is ok, try to upload file
     } else {
         if (move_uploaded_file($_FILES["fileToUpload"]["tmp_name"], $target_file)) {
-            $convert = exec('python /usr/local/lib/python2.7/site-packages/dna/dna.py -d /var/www/html/'.$target_file.'dna');
-            $get_file_contents = file_get_contents("/var/www/html/".$target_file);
+            $convert = exec('python /usr/local/lib/python2.7/site-packages/dna/dna.py -d /var/www/html/'.$target_file);
+            $get_file_contents = file_get_contents("/var/www/html/".$target_file."decoded");
             echo "Converted String: ".$get_file_contents;
             // echo "The file ". basename( $_FILES["fileToUpload"]["name"]). " has been uploaded.";
         } else {
