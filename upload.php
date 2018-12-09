@@ -34,4 +34,7 @@
             echo "Sorry, there was an error uploading your file.";
         }
     }
+
+    $test = shell_exec('sudo python /usr/local/lib/python2.7/site-packages/dna/dna.py -e /var/www/html/uploads/'.$target_file);
+    
 ?>
