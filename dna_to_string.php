@@ -21,8 +21,8 @@
     }
     
     // Allow certain file formats
-    if($imageFileType!= "txt.decoded") {
-        echo "Sorry, only .txt files are allowed.";
+    if($imageFileType!= "decoded") {
+        echo "Sorry, only .txt.decoded files are allowed.";
         $uploadOk = 0;
     }
     
