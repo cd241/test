@@ -35,7 +35,7 @@
             $convert = exec('python /usr/local/lib/python2.7/site-packages/dna/dna.py -d /var/www/html/'.$target_file);
             $converted_file = glob("uploads/*decoded");
             $get_file_contents = file_get_contents("/var/www/html/".$converted_file[0]);
-            echo "Converted String: ".$get_file_contents;
+            //echo "Converted String: ".$get_file_contents;
             // echo "The file ". basename( $_FILES["fileToUpload"]["name"]). " has been uploaded.";
         } else {
             echo "Sorry, there was an error uploading your file.";
@@ -48,7 +48,16 @@
 <html>
 <body>
 
+    <style>
+        html, body {
+            max-width: 100%;
+            overflow-x: hidden;
+        }
+    </style>
+
     <br><br>
+    <label>Converted String: <?php echo $get_file_contents; ?> </label>
+    <br><br><br>
     <a href="carverr.html">Go back</a>
 
 </body>
