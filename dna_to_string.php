@@ -36,8 +36,7 @@
 
             $explode = explode("/", $target_file);
             $explode1 = explode(".", $explode[1]);
-            print_r($explode1); exit;
-
+            
             //$converted_file = glob("uploads/*decoded");
             $get_file_contents = file_get_contents("/var/www/html/uploads/".$explode1[0].$explode1[1].".decoded");
             //echo "Converted String: ".$get_file_contents;
