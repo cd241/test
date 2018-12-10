@@ -36,9 +36,9 @@
 
             $explode = explode("/", $target_file);
             $explode1 = explode(".", $explode[1]);
-            
+
             //$converted_file = glob("uploads/*decoded");
-            $get_file_contents = file_get_contents("/var/www/html/uploads/".$explode1[0].$explode1[1].".decoded");
+            $get_file_contents = file_get_contents("/var/www/html/uploads/".$explode1[0].".".$explode1[1].".decoded");
             //echo "Converted String: ".$get_file_contents;
             // echo "The file ". basename( $_FILES["fileToUpload"]["name"]). " has been uploaded.";
         } else {
