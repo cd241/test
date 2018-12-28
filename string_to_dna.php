@@ -39,11 +39,15 @@
         }
     }
 
-    if(strlen($get_file_contents) > 120) {
+    $length = strlen($get_file_contents);
+
+    echo $length;
+
+    if($length > 120) {
         echo "String length over 120 characters";
     }
 
-    if(strlen($get_file_contents < 50)) {
+    if($length < 50)) {
         echo "String length less than 50";
     }
 
