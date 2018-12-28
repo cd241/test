@@ -21,13 +21,12 @@
 
     echo $updatedString;
 
-    $file = 'uploads/'.$randomString.'.txt';
-	// Open the file to get existing content
-	$current = file_get_contents($file);
-	// Append a new person to the file
-	$current .= $updatedString;
-	// Write the contents back to the file
-	file_put_contents($file, $current);
+    $myfile = fopen("uploads/".$randomString.".txt", "w") or die("Unable to open file!");
+
+   	fwrite($myfile, $updatedString);
+
+   	fclose($myfile);
+
 ?>
 
 <!DOCTYPE html>
