@@ -58,9 +58,9 @@
 
 	    $dna_string = $get_file_contents;
 
-	    $data = array($cus_name, $cus_number, $chasis, $host, $ppg, $cus_location, $geotag, $tag, $dna_string);
+	    $data = array($cus_name, $randomString, $cus_number, $chasis, $host, $ppg, $cus_location, $geotag, $tag, $dna_string);
 
-	    $stmt = $conn->prepare("INSERT INTO tag_details (cus_name, cus_number, chasis, host, ppg, cus_location, geo_tag, tag_type, dna_string) VALUES (?,?,?,?,?,?,?,?,?)");
+	    $stmt = $conn->prepare("INSERT INTO tag_details (cus_name, code, cus_number, chasis, host, ppg, cus_location, geo_tag, tag_type, dna_string) VALUES (?,?,?,?,?,?,?,?,?,?)");
 	    $stmt->execute($data);
 
 
