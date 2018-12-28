@@ -18,8 +18,8 @@
 		echo "Connection failed: " . $e->getMessage();
 	}
 
-	// Generates random 6 character long alphanumeric value
-    function generateRandomString($length = 6) {
+	// Generates random 8 character long alphanumeric value
+    function generateRandomString($length = 8) {
         $characters = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
         $charactersLength = strlen($characters);
         $randomString = '';
