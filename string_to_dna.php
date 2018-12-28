@@ -41,8 +41,6 @@
 
     $length = strlen($get_file_contents);
 
-    echo $length;
-
     if($length < 50 && $length < 120) {
         echo "Good String size";
     }
@@ -51,30 +49,30 @@
         echo "String length over 120 characters";
     }
 
-    if($length < 50)) {
+    if($length < 50) {
         echo "String length less than 50";
     }
 
-    // $a = "AAA";
-    // $c = "CCC";
-    // $g = "GGG";
-    // $t = "TTT";
+    $a = "AAA";
+    $c = "CCC";
+    $g = "GGG";
+    $t = "TTT";
 
-    // if(substr_count($get_file_contents, $a) > 0) {
-    //     echo "AAA is present";
-    // }
+    if(substr_count($get_file_contents, $a) > 0) {
+        echo "AAA is present";
+    }
 
-    // if(substr_count($get_file_contents, $c) > 0) {
-    //     echo "CCC is present";
-    // }
+    if(substr_count($get_file_contents, $c) > 0) {
+        echo "CCC is present";
+    }
 
-    // if(substr_count($get_file_contents, $g) > 0) {
-    //     echo "GGG is present";
-    // }
+    if(substr_count($get_file_contents, $g) > 0) {
+        echo "GGG is present";
+    }
 
-    // if(substr_count($get_file_contents, $t) > 0) {
-    //     echo "TTT is present";
-    // }
+    if(substr_count($get_file_contents, $t) > 0) {
+        echo "TTT is present";
+    }
 
 
     // Generates random 8 character long alphanumeric value
