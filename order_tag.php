@@ -29,64 +29,62 @@
         return $randomString;
     }
 
+    if(!empty($cus_name = $_GET['cus_name'];) && !empty($cus_number = $_GET['cus_number'];) && !empty($chasis = $_GET['chasis'];) && !empty($host = $_GET['host'];) && !empty($ppg = $_GET['ppg'];) && !empty($cus_location = $_GET['cus_location'];) && !empty($geotag = $_GET['geotag'];) && !empty($tag = $_GET['tag'];)) {
 
-    $randomString = generateRandomString();
+    	$randomString = generateRandomString();
 
-    $updatedString = "CRV".$randomString."CRV";
+	    $updatedString = "CRV".$randomString."CRV";
 
-    $myfile = fopen("uploads/".$randomString.".txt", "w") or die("Unable to open file!");
+	    $myfile = fopen("uploads/".$randomString.".txt", "w") or die("Unable to open file!");
 
-   	fwrite($myfile, $updatedString);
+	   	fwrite($myfile, $updatedString);
 
-   	fclose($myfile);
+	   	fclose($myfile);
 
-   	$convert = exec('python /usr/local/lib/python2.7/site-packages/dna/dna.py -e /var/www/html/uploads/'.$randomString.'.txt');
-    $get_file_contents = file_get_contents("/var/www/html/uploads/".$randomString.".txt.dna");
+	   	$convert = exec('python /usr/local/lib/python2.7/site-packages/dna/dna.py -e /var/www/html/uploads/'.$randomString.'.txt');
+	    $get_file_contents = file_get_contents("/var/www/html/uploads/".$randomString.".txt.dna");
 
-    $length = strlen($get_file_contents);
+	    $dna_string = $get_file_contents;
 
-    if($length > 50 && $length < 120) {
-        echo "Good String length";
+	    $length = strlen($get_file_contents);
+
+	    if($length > 50 && $length < 120) {
+	        echo "Good String length";
+	    }
+
+	    if($length > 120) {
+	        echo "String length over 120 characters";
+	    }
+
+	    if($length < 50) {
+	        echo "String length less than 50 characters";
+	    }
+
+	    $a = "AAA";
+	    $c = "CCC";
+	    $g = "GGG";
+	    $t = "TTT";
+
+	    if(substr_count($get_file_contents, $a) > 0) {
+	        echo "AAA is present";
+	    }
+
+	    if(substr_count($get_file_contents, $c) > 0) {
+	        echo "CCC is present";
+	    }
+
+	    if(substr_count($get_file_contents, $g) > 0) {
+	        echo "GGG is present";
+	    }
+
+	    if(substr_count($get_file_contents, $t) > 0) {
+	        echo "TTT is present";
+	    }
     }
 
-    if($length > 120) {
-        echo "String length over 120 characters";
+    else {
+    	echo "Enter all details";
     }
-
-    if($length < 50) {
-        echo "String length less than 50 characters";
-    }
-
-    $a = "AAA";
-    $c = "CCC";
-    $g = "GGG";
-    $t = "TTT";
-
-    if(substr_count($get_file_contents, $a) > 0) {
-        echo "AAA is present";
-    }
-
-    if(substr_count($get_file_contents, $c) > 0) {
-        echo "CCC is present";
-    }
-
-    if(substr_count($get_file_contents, $g) > 0) {
-        echo "GGG is present";
-    }
-
-    if(substr_count($get_file_contents, $t) > 0) {
-        echo "TTT is present";
-    }
-
-    $cus_name = $_GET['cus_name'];
-    $cus_number = $_GET['cus_number'];
-    $chasis = $_GET['chasis'];
-    $host = $_GET['host'];
-    $ppg = $_GET['ppg'];
-    $cus_location = $_GET['cus_location'];
-    $geotag = $_GET['geotag'];
-    $tag = $_GET['tag'];
-
 ?>
 
 <!DOCTYPE html>
