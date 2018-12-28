@@ -38,7 +38,11 @@
     $geotag = $_POST['geotag'];
     $tag = $_POST['tag'];
 
-    if(!empty($cus_name) && !empty($cus_number) && !empty($chasis) && !empty($host) && !empty($ppg) && !empty($cus_location) && !empty($geotag) && !empty($tag)) {
+    if(empty($tag)) {
+    	$tag = "";
+    }
+
+    if(!empty($cus_name) && !empty($cus_number) && !empty($chasis) && !empty($host) && !empty($ppg) && !empty($cus_location) && !empty($geotag)) {
     	$randomString = generateRandomString();
 
 	    $updatedString = "CRV".$randomString."CRV";
