@@ -3,7 +3,7 @@
 	error_reporting(E_ALL);
     ini_set('display_errors', 1);
 
-	// Generates random 8 character long alphanumeric value
+	// Generates random 6 character long alphanumeric value
     function generateRandomString($length = 6) {
         $characters = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
         $charactersLength = strlen($characters);
@@ -20,6 +20,14 @@
     $updatedString = "CRV".$randomString."CRV";
 
     echo $updatedString;
+
+    $file = 'uploads/'.$randomString.'.txt';
+	// Open the file to get existing content
+	$current = file_get_contents($file);
+	// Append a new person to the file
+	$current .= $updatedString;
+	// Write the contents back to the file
+	file_put_contents($file, $current);
 ?>
 
 <!DOCTYPE html>
@@ -67,6 +75,10 @@
 
 	<label>Tag Type & Number</label>
 	<input type="text" name="tag">
+
+	<br>
+
+	<button>Order Tag</button>
 
 
     <br><br><br>
