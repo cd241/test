@@ -41,8 +41,8 @@
 
     $length = strlen($get_file_contents);
 
-    if($length < 50 && $length < 120) {
-        echo "Good String size";
+    if($length > 50 && $length < 120) {
+        echo "Good String length";
     }
 
     if($length > 120) {
@@ -50,7 +50,7 @@
     }
 
     if($length < 50) {
-        echo "String length less than 50";
+        echo "String length less than 50 characters";
     }
 
     $a = "AAA";
@@ -76,18 +76,18 @@
 
 
     // Generates random 8 character long alphanumeric value
-    // function generateRandomString($length = 8) {
-    //     $characters = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
-    //     $charactersLength = strlen($characters);
-    //     $randomString = '';
-    //     for ($i = 0; $i < $length; $i++) {
-    //         $randomString .= $characters[rand(0, $charactersLength - 1)];
-    //     }
-    //     return $randomString;
-    // }
+    function generateRandomString($length = 6) {
+        $characters = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
+        $charactersLength = strlen($characters);
+        $randomString = '';
+        for ($i = 0; $i < $length; $i++) {
+            $randomString .= $characters[rand(0, $charactersLength - 1)];
+        }
+        return $randomString;
+    }
 
 
-    // $randomString = generateRandomString();
+    $randomString = generateRandomString();
 ?>
 
 <!DOCTYPE html>
