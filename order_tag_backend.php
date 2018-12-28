@@ -54,8 +54,9 @@
 
 	    $dna_string = $get_file_contents;
 
-	    $sql = "INSERT INTO tag_details (cus_name, cus_number, chasis, host, ppg, cus_location, geo_tag, tag_type, dna_string) VALUES (?,?,?,?,?,?,?,?,?)";
-	    $sql->execute([$cus_name, $cus_number, $chasis, $host, $ppg, $cus_location, $geotag, $tag, $dna_string]);
+	    $stmt = $conn->prepare("INSERT INTO tag_details (cus_name, cus_number, chasis, host, ppg, cus_location, geo_tag, tag_type, dna_string) VALUES (?,?,?,?,?,?,?,?,?)");
+	    $stmt->bind_param([$cus_name, $cus_number, $chasis, $host, $ppg, $cus_location, $geotag, $tag, $dna_string]);
+	    $stmt->execute();
 
 
 	    $length = strlen($get_file_contents);
