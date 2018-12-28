@@ -33,12 +33,43 @@
     } else {
         if (move_uploaded_file($_FILES["fileToUpload"]["tmp_name"], $target_file)) {
             $convert = exec('python /usr/local/lib/python2.7/site-packages/dna/dna.py -d /var/www/html/'.$target_file);
-
+            
             $explode = explode("/", $target_file);
             $explode1 = explode(".", $explode[1]);
 
-            //$converted_file = glob("uploads/*decoded");
             $get_file_contents = file_get_contents("/var/www/html/uploads/".$explode1[0].".".$explode1[1].".decoded");
+
+            // if(strlen($get_file_contents) > 120) {
+            //     echo "String length over 120 characters";
+            // }
+
+            // if(strlen($get_file_contents < 50)) {
+            //     echo "String length less than 50";
+            // }
+
+            // $a = "AAA";
+            // $c = "CCC";
+            // $g = "GGG";
+            // $t = "TTT";
+
+            // if(substr_count($get_file_contents, $a) > 0) {
+            //     echo "AAA is present";
+            // }
+
+            // if(substr_count($get_file_contents, $c) > 0) {
+            //     echo "CCC is present";
+            // }
+
+            // if(substr_count($get_file_contents, $g) > 0) {
+            //     echo "GGG is present";
+            // }
+
+            // if(substr_count($get_file_contents, $t) > 0) {
+            //     echo "TTT is present";
+            // }
+
+            //$converted_file = glob("uploads/*decoded");
+            
             //echo "Converted String: ".$get_file_contents;
             // echo "The file ". basename( $_FILES["fileToUpload"]["name"]). " has been uploaded.";
         } else {
