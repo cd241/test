@@ -11,7 +11,7 @@
 	    $conn = new PDO("mysql:host=$servername;dbname=order_tag", $username, $password);
 	    // set the PDO error mode to exception
 	    $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-	    echo "Connected successfully"; 
+	    //echo "Connected successfully"; 
 	}
 	
 	catch(PDOException $e) {
@@ -34,13 +34,58 @@
 
     $updatedString = "CRV".$randomString."CRV";
 
-    //echo $updatedString;
-
     $myfile = fopen("uploads/".$randomString.".txt", "w") or die("Unable to open file!");
 
    	fwrite($myfile, $updatedString);
 
    	fclose($myfile);
+
+   	$convert = exec('python /usr/local/lib/python2.7/site-packages/dna/dna.py -e /var/www/html/'.$myfile);
+    $get_file_contents = file_get_contents("/var/www/html/".$myfile.".dna");
+
+    $length = strlen($get_file_contents);
+
+    if($length > 50 && $length < 120) {
+        echo "Good String length";
+    }
+
+    if($length > 120) {
+        echo "String length over 120 characters";
+    }
+
+    if($length < 50) {
+        echo "String length less than 50 characters";
+    }
+
+    $a = "AAA";
+    $c = "CCC";
+    $g = "GGG";
+    $t = "TTT";
+
+    if(substr_count($get_file_contents, $a) > 0) {
+        echo "AAA is present";
+    }
+
+    if(substr_count($get_file_contents, $c) > 0) {
+        echo "CCC is present";
+    }
+
+    if(substr_count($get_file_contents, $g) > 0) {
+        echo "GGG is present";
+    }
+
+    if(substr_count($get_file_contents, $t) > 0) {
+        echo "TTT is present";
+    }
+
+    echo $cus_name = $_GET['cus_name'];
+    echo $cus_number = $_GET['cus_number'];
+    echo $chasis = $_GET['chasis'];
+    echo $host = $_GET['host'];
+    echo $ppg = $_GET['ppg'];
+    echo $cus_location = $_GET['cus_location'];
+    echo $geotag = $_GET['geotag'];
+    echo $tag = $_GET['tag'];
 
 ?>
 
@@ -49,50 +94,54 @@
 <body>
 
     <br>
-    <label>Customer Name</label>
-    <input type="text" name="cus_name">
 
-    <br>
+    <form action="/" method="GET">
+    	<label>Customer Name</label>
+	    <input type="text" name="cus_name">
 
-    <label>Contact Number</label>
-    <input type="number" name="cus_number">
+	    <br>
 
-    <br>
+	    <label>Contact Number</label>
+	    <input type="number" name="cus_number">
 
-    <label>Chasis</label>
-    <input type="text" name="chasis">
+	    <br>
 
-    <br>
+	    <label>Chasis</label>
+	    <input type="text" name="chasis">
 
-    <label>Host</label>
-    <input type="text" name="host">
+	    <br>
 
-    <br>
+	    <label>Host</label>
+	    <input type="text" name="host">
 
-    <label>PPG</label>
-    <input type="PPG" name="ppg">
+	    <br>
 
-    <br>
+	    <label>PPG</label>
+	    <input type="PPG" name="ppg">
 
-    <label>Host Location</label>
-    <input type="text" name="cus_location">
+	    <br>
 
-    <br>
+	    <label>Host Location</label>
+	    <input type="text" name="cus_location">
 
-    <label>Geotag</label>
-    <select>
-	  <option value="Yes">Yes</option>
-	  <option value="No">No</option>
-	</select>
+	    <br>
 
-	<br>
+	    <label>Geotag</label>
+	    <select name="geotag">
+		  <option value="Yes">Yes</option>
+		  <option value="No">No</option>
+		</select>
 
-	<label>Tag Type & Number</label>
-	<input type="text" name="tag">
+		<br>
 
-	<br>
+		<label>Tag Type & Number</label>
+		<input type="text" name="tag">
 
-	<button>Order Tag</button>
+		<br><br>
+
+		<input type="submit" value="Order Tag" name="submit">
+    </form>
+    
 
 
     <br><br><br>
