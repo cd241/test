@@ -103,7 +103,4 @@
     else {
     	echo "Enter all details";
     }
-
-	
-
 ?>
