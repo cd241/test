@@ -73,21 +73,6 @@
     if(substr_count($get_file_contents, $t) > 0) {
         echo "TTT is present";
     }
-
-
-    // Generates random 8 character long alphanumeric value
-    function generateRandomString($length = 6) {
-        $characters = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
-        $charactersLength = strlen($characters);
-        $randomString = '';
-        for ($i = 0; $i < $length; $i++) {
-            $randomString .= $characters[rand(0, $charactersLength - 1)];
-        }
-        return $randomString;
-    }
-
-
-    $randomString = generateRandomString();
 ?>
 
 <!DOCTYPE html>

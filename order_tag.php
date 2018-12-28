@@ -1,3 +1,27 @@
+<?php
+	
+	error_reporting(E_ALL);
+    ini_set('display_errors', 1);
+
+	// Generates random 8 character long alphanumeric value
+    function generateRandomString($length = 6) {
+        $characters = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
+        $charactersLength = strlen($characters);
+        $randomString = '';
+        for ($i = 0; $i < $length; $i++) {
+            $randomString .= $characters[rand(0, $charactersLength - 1)];
+        }
+        return $randomString;
+    }
+
+
+    $randomString = generateRandomString();
+
+    $updatedString = "CRV".$randomString."CRV";
+
+    echo $updatedString;
+?>
+
 <!DOCTYPE html>
 <html>
 <body>
@@ -44,7 +68,7 @@
 	<label>Tag Type & Number</label>
 	<input type="text" name="tag">
 
-	
+
     <br><br><br>
     <a href="carverr.html">Go back</a>
 
