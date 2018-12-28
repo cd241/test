@@ -40,8 +40,8 @@
 
    	fclose($myfile);
 
-   	$convert = exec('python /usr/local/lib/python2.7/site-packages/dna/dna.py -e /var/www/html/uploads/'.$myfile);
-    $get_file_contents = file_get_contents("/var/www/html/uploads/".$myfile.".dna");
+   	$convert = exec('python /usr/local/lib/python2.7/site-packages/dna/dna.py -e /var/www/html/uploads/'.$randomString.'.txt');
+    $get_file_contents = file_get_contents("/var/www/html/uploads/".$randomString.".txt.dna");
 
     $length = strlen($get_file_contents);
 
@@ -78,14 +78,14 @@
         echo "TTT is present";
     }
 
-    echo $cus_name = $_GET['cus_name'];
-    echo $cus_number = $_GET['cus_number'];
-    echo $chasis = $_GET['chasis'];
-    echo $host = $_GET['host'];
-    echo $ppg = $_GET['ppg'];
-    echo $cus_location = $_GET['cus_location'];
-    echo $geotag = $_GET['geotag'];
-    echo $tag = $_GET['tag'];
+    $cus_name = $_GET['cus_name'];
+    $cus_number = $_GET['cus_number'];
+    $chasis = $_GET['chasis'];
+    $host = $_GET['host'];
+    $ppg = $_GET['ppg'];
+    $cus_location = $_GET['cus_location'];
+    $geotag = $_GET['geotag'];
+    $tag = $_GET['tag'];
 
 ?>
 
