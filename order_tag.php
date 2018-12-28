@@ -40,8 +40,8 @@
 
    	fclose($myfile);
 
-   	$convert = exec('python /usr/local/lib/python2.7/site-packages/dna/dna.py -e /var/www/html/'.$myfile);
-    $get_file_contents = file_get_contents("/var/www/html/".$myfile.".dna");
+   	$convert = exec('python /usr/local/lib/python2.7/site-packages/dna/dna.py -e /var/www/html/uploads/'.$myfile);
+    $get_file_contents = file_get_contents("/var/www/html/uploads/".$myfile.".dna");
 
     $length = strlen($get_file_contents);
 
@@ -95,7 +95,7 @@
 
     <br>
 
-    <form action="/" method="GET">
+    <form action="order_tag.php" method="GET">
     	<label>Customer Name</label>
 	    <input type="text" name="cus_name">
 
