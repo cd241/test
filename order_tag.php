@@ -3,6 +3,21 @@
 	error_reporting(E_ALL);
     ini_set('display_errors', 1);
 
+    $servername = "localhost";
+	$username = "root";
+	$password = "Duelmasters241!";
+
+	try {
+	    $conn = new PDO("mysql:host=$servername;dbname=order_tag", $username, $password);
+	    // set the PDO error mode to exception
+	    $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+	    echo "Connected successfully"; 
+	}
+	
+	catch(PDOException $e) {
+		echo "Connection failed: " . $e->getMessage();
+	}
+
 	// Generates random 6 character long alphanumeric value
     function generateRandomString($length = 6) {
         $characters = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
@@ -19,7 +34,7 @@
 
     $updatedString = "CRV".$randomString."CRV";
 
-    echo $updatedString;
+    //echo $updatedString;
 
     $myfile = fopen("uploads/".$randomString.".txt", "w") or die("Unable to open file!");
 
